@@ -1,0 +1,19 @@
+{% extends 'songs_of_SS/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="show-video">
+  {% for v in video %}
+  <div class="name-and-video">
+      <p>{{ v.name }}</p>
+      <video controls>
+          <source src="{{ v.mp4_file.url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video> 
+    </div> 
+  {% endfor %}
+</div>
+{% endblock %}

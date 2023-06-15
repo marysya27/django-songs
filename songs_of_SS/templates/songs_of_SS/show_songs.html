@@ -1,0 +1,35 @@
+{% extends 'songs_of_SS/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+<div class="search-form">
+    <form action="{% url 'search' %}">
+        <input type="search" type="text" name="q" placeholder="Пошук пісні">
+        <button type="submit"><img class="search-button" src="../../static/songs_of_SS/media/лупа.png" alt="Search"></button>
+    </form>
+</div>
+
+<div class="music">
+    {% for s in songs %}
+        <p class="name-song">{{ s.title }}</p>
+        <audio controls preload="auto">
+            <source src="{{ s.mp3_file.url }}" type="audio/mp3">
+        </audio><br>
+        <a class="song-description" href="{% url 'song_description' s.slug %}">Текст...</a><br>        
+    {% endfor %}
+</div>
+<div class="pagin">
+    <ul>
+        {% for p in paginator.page_range %}
+            {% if page_obj.number == p %}
+                <li class="page-num-selected">{{ p }}</li>
+            {% else %}
+            <li class="li-pagin">
+                <a href="?page={{ p }}">{{ p }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

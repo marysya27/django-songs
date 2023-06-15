@@ -1,0 +1,16 @@
+{% extends 'songs_of_SS/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+    {% for album in albums %}
+        {% if album.number_of_songs > 1 %}
+            <div class="album">
+                <a class="name-album" href="{% url 'album_description' album.slug %}">{{ album.name }}</a>
+                <p class="album-release">Реліз: {{ album.release_date }}</p>
+                <p class="album-number-of-songs">Кількість пісень: {{ album.number_of_songs }}</p>
+                <img class="album-image" src="{{ album.photo.url }}">     
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

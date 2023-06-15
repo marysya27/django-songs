@@ -1,0 +1,20 @@
+{% extends 'songs_of_SS/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+    <img class="image-song" src="{{ song.photo.url }}">
+<div class="name-release-album">
+    <p class="name-song-description">{{ song.title }} - {{ song.artist }}</p>
+    <p class="release-song-description">Дата виходу: {{ song.release_date }}</p>
+    {% if song.album.number_of_songs != 1 %}
+        <p class="album-song-description">Альбом: {{ song.album }}</p>
+    {% endif %}
+</div>
+    <audio controls class="audio-song-description">
+        <source src="{{ song.mp3_file.url }}" type="audio/mp3">
+    </audio>
+    <div class="text-song-description">
+    <p>{{ song.text|linebreaks }}</p>
+    </div>
+{% endblock %}

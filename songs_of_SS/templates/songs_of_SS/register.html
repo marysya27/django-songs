@@ -1,0 +1,27 @@
+{% extends 'songs_of_SS/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<p class="title-register">{{ title }}</p>
+<div class="register">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.username }} <br>
+        {{ form.password1 }} <br>
+        {{ form.password2 }} <br>
+        <button class="button-register" type="submit">Зареєструватися</button>
+        <div class="errorlist">
+            {% for field_errors in form.errors.values %}
+                {% for error in field_errors %}
+                    {{ error }}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
