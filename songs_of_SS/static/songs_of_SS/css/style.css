@@ -352,8 +352,7 @@ video {
 .index-img-SadSvit {
     width: 220px;
     margin: 0px 50px 50px 32px;
-    /* border: 4px solid rgb(206, 141, 249); */
-    border: 4px solid rgb(141, 249, 171);
+    border: 4px solid rgb(206, 141, 249);
     transition: transform 0.3s ease-in-out;
 }
 

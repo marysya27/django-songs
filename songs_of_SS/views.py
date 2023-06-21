@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, TemplateView, CreateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout
 from django.shortcuts import redirect
+from django.contrib.auth import login
 
 
 from .models import *
@@ -95,6 +96,12 @@ class RegisterUser(DataMixin, CreateView):
         context_def = self.get_user_context(title = 'Реєстрація')
         return dict(list(context.items())+list(context_def.items()))
     
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('home')
+
+
 class LoginUser(DataMixin, LoginView):
     form_class = LoginUserForm
     template_name = 'songs_of_SS/login.html'
