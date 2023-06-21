@@ -527,7 +527,7 @@ ul {
 }
 
 
-@media screen and (max-width: 755px) {
+@media screen and (max-width: 825px) {
     .header, .header-logout, .username, .header-video {
         display: none;
     }
@@ -656,13 +656,18 @@ ul {
 
     .name-and-video {
         margin-left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%); 
     }
 }  
 
 
-@media screen and (min-width: 756px) {
+@media screen and (min-width: 826px) {
     .menu-icon {
         display: none;
+    }
+
+    .show-video {
+        text-align: center;
+        justify-content: center;
     }
 }
