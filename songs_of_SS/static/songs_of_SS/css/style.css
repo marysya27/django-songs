@@ -554,13 +554,12 @@ ul {
 
     .index-img-SadSvit {
         width: 33%;
-        margin: 0px 15px 50px 25px;
+        margin: 0px 15px 50px 15px;
     }
 
     .photo {
-        left: auto;
         width: 100%;
-        transform: none;
+        text-align: center;
     }
 
     .footer p {
