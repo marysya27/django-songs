@@ -658,6 +658,10 @@ ul {
         margin-left: 50%;
         transform: translateX(-50%); 
     }
+
+    .errorlist {
+        width: 305px;
+    }
 }  
 
 
